@@ -31,9 +31,12 @@ dbConnection()
     });
 
 
-const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS
-  ? process.env.CORS_ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
-  : ['http://localhost:5173']);
+const allowedOrigins = [
+  process.env.CORS_ALLOWED_ORIGINS,
+  'https://p-cell-xfji.vercel.app',
+  'http://localhost:5173',
+  'https://p-cell.vercel.app'
+];
 
 server.use(cors({
   origin: allowedOrigins,
