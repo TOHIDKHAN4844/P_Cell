@@ -9,7 +9,6 @@ import {baseUrl} from '../constants.js'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
-
 function Login() {
   let navigate = useNavigate();
   const location = useLocation();
@@ -146,7 +145,7 @@ function Login() {
         >
           <img
             className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+            src="../../public/image.png"
             alt="logo"
           />
           Placement Cell
