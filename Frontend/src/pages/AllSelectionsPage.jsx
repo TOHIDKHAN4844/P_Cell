@@ -8,6 +8,7 @@ import { handleDelete } from "../handlers/AllSelectionsPage.handler.js";
 import Modal from '../components/Modal';
 import { getAllSelections } from "../services/getAllSelections.services.js";
 import axios from "axios";
+import { baseUrl } from "../constants.js";
 
 function AllSelectionsPage() {
   const [successMessage, setSuccessMessage] = useState("");
@@ -26,9 +27,14 @@ function AllSelectionsPage() {
         return;
       }
       // Always use the full backend URL for DELETE
-      const response = await axios.delete(`http://localhost:5000/api/selection/deleteSelection/${_id}`, {
-        headers: { token }
-      });
+          // const response = await axios.delete(`http://localhost:5000/api/selection/deleteSelection/${_id}`, {
+          //   headers: { token }
+          // });
+
+      const response = await axios.delete(
+        `${baseUrl}/api/selection/deleteSelection/${_id}`,
+        { headers: { token } }
+      );
       if (response?.data?.success === 1) {
         // Fetch updated selections
         const updated = await getAllSelections();
@@ -169,10 +175,13 @@ function AllSelectionsPage() {
                   if (!selectionToDelete) return;
                   const token = localStorage.getItem("token");
                   try {
-                    const response = await fetch(`http://localhost:5000/api/selection/deleteSelection/${selectionToDelete}`, {
-                      method: "DELETE",
-                      headers: { token }
-                    });
+                    const response = await fetch(
+                      `${baseUrl}/api/selection/deleteSelection/${selectionToDelete}`,
+                      {
+                        method: "DELETE",
+                        headers: { token }
+                      }
+                    );
                     const data = await response.json();
                     if (data.success === 1) {
                       const updated = await getAllSelections();

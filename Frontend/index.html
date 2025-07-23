@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Placement Cell</title>
+
+    <!-- ✅ ✅ ✅ ADD THIS CSP META TAG -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        style-src 'self' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' https://flowbite.s3.amazonaws.com data:;
+        connect-src 'self' https://YOUR_BACKEND_URL_HERE;
+      "
+    />
   </head>
   <body>
     <div id="root"></div>
