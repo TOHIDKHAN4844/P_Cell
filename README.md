@@ -226,7 +226,7 @@ P_Cell/
 
 *(Add your ER diagram image or code block here)*
 
-![Alt text](Frontend/src/assets/download1.png)
+![Alt text]()
 
 
 
