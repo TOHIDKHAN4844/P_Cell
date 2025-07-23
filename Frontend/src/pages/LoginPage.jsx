@@ -7,6 +7,7 @@ import Button from "../components/Button.jsx";
 import Spinner from "../components/Spinner.jsx";
 import {baseUrl} from '../constants.js'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import logo from '../assets/image.png';
 
 
 function Login() {
@@ -143,11 +144,7 @@ function Login() {
           to="#"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          <img
-            className="w-8 h-8 mr-2"
-            src="../../public/image.png"
-            alt="logo"
-          />
+         <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
           Placement Cell
         </Link>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
