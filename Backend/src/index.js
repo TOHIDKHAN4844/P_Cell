@@ -123,6 +123,11 @@ server.get('/verify-token', (req, res) => {
     }
 });
 
+// Add a root route '/' that returns a friendly message to avoid 404 errors when visiting the backend root URL.
+server.get('/', (req, res) => {
+  res.send('Backend API is running.');
+});
+
 // routers import
 
 const { userRoute } = require('./routes/user.route.js')
