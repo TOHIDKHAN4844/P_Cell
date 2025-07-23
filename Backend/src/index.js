@@ -35,7 +35,7 @@ const allowedOrigins = [
   process.env.CORS_ALLOWED_ORIGINS,
   'https://p-cell-xfji.vercel.app',
   'http://localhost:5173',
-  'https://p-cell.vercel.app'
+  'https://p-cellbackend.vercel.app'
 ];
 
 server.use(cors({
