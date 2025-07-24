@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import profilePicPlaceholder from "../assets/profile_pic_placeholder.jpeg";
 import { GrTableAdd } from "react-icons/gr";
 import { MdGroupAdd } from "react-icons/md";
+import logo from '../assets/logo1.png';
 import {
   FaUser,
   FaUsers,
@@ -80,7 +81,7 @@ function Sidebar({ children = "", loggedInUserDetails = {} }) {
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="../../public/image.png"
+              src={logo}
               className="h-8"
               alt="Logo"
             />
