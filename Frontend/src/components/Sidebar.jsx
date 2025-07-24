@@ -82,11 +82,11 @@ function Sidebar({ children = "", loggedInUserDetails = {} }) {
           >
             <img
               src={logo}
-              className="h-8"
+              className="h-14 ml-0"
               alt="Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Placement Cell
+             
             </span>
           </Link>
 
