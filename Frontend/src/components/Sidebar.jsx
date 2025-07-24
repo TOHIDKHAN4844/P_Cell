@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import profilePicPlaceholder from "../assets/profile_pic_placeholder.jpeg";
 import { GrTableAdd } from "react-icons/gr";
 import { MdGroupAdd } from "react-icons/md";
-import logo from '../assets/logo1.png';
+import logo from '../assets/logo3.png';
 import {
   FaUser,
   FaUsers,
