@@ -6,6 +6,7 @@ import ResumeTemplateClassic from '../components/ResumeTemplateClassic';
 // import ResumeTemplateMinimal from '../components/ResumeTemplateMinimal';
 // import ResumeTemplateColor from '../components/ResumeTemplateColor';
 import { useParams } from 'react-router-dom';
+import { baseUrl } from '../constants.js';
 
 const templateMap = {
   classic: ResumeTemplateClassic,
@@ -22,12 +23,14 @@ export default function ResumePreviewPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    let url = '/api/user/loggedInUserDetails';
+    let url = `${baseUrl}/api/user/loggedInUserDetails`;
     if (userId) {
-      url = `/api/user/otherUserProfile/${userId}`;
+      url = `${baseUrl}/api/user/otherUserProfile/${userId}`;
     }
     axios.get(url, {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     })
       .then(res => {
         setProfile(res.data.user || res.data);

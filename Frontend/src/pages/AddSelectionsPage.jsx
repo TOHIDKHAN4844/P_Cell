@@ -5,6 +5,7 @@ import { addSelections } from "../services/addSelections.services.js";
 import axios from "axios";
 import { useData } from '../context/DataContext.jsx';
 import { getAllSelections } from "../services/getAllSelections.services.js";
+import { baseUrl } from '../constants.js';
 
 function AddSelectionsPage() {
   const { _id } = useParams();
@@ -18,7 +19,7 @@ function AddSelectionsPage() {
     async function fetchData() {
       setLoading(true);
       try {
-        const res = await axios.get(`/api/user/applied-and-shortlisted?openingId=${_id}`, {
+        const res = await axios.get(`${baseUrl}/api/user/applied-and-shortlisted?openingId=${_id}`, {
           headers: { token: localStorage.getItem('token') }
         });
         setApplied(res.data.applied);

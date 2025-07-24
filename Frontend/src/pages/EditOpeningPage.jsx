@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "../components/Sidebar";
+import { baseUrl } from '../constants.js';
 
 const EditOpeningPage = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const EditOpeningPage = () => {
     async function fetchOpening() {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`/api/opening/getSingleOpening/${id}`, {
+        const res = await axios.get(`${baseUrl}/api/opening/getSingleOpening/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOpening(res.data.opening);
@@ -29,7 +30,7 @@ const EditOpeningPage = () => {
     async function loadLoggedInUserDetails() {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`/api/user/loggedInUserDetails`, {
+        const res = await axios.get(`${baseUrl}/api/user/loggedInUserDetails`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLoggedInUserDetails(res.data.user);
@@ -77,7 +78,7 @@ const EditOpeningPage = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const res = await axios.put(`/api/opening/updateOpening/${id}`, opening, {
+      const res = await axios.put(`${baseUrl}/api/opening/updateOpening/${id}`, opening, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLoading(false);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../constants.js';
 
 const initialProfile = {
   academicDetails: {
@@ -33,7 +34,7 @@ export default function ResumeProfileForm() {
   useEffect(() => {
     // Fetch current user profile
     const token = localStorage.getItem('token');
-    axios.get('/api/user/loggedInUserDetails', {
+    axios.get(`${baseUrl}/api/user/loggedInUserDetails`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -133,7 +134,7 @@ export default function ResumeProfileForm() {
     setMessage('');
     const token = localStorage.getItem('token');
     try {
-      await axios.put('/api/user/profile/resume', { ...profile, ...socialLinks }, {
+      await axios.put(`${baseUrl}/api/user/profile/resume`, { ...profile, ...socialLinks }, {
         headers: {
           Authorization: `Bearer ${token}`
         }
